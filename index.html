@@ -6,7 +6,6 @@
 <title>CredExpert | Financiación para comercios</title>
 <link rel="icon" href="favicon.png" type="image/png">
 
-
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -27,11 +26,27 @@ src="https://www.facebook.com/tr?id=1235816984573611&ev=PageView&noscript=1"/>
 <!-- End Meta Pixel Code -->
 
 <style>
-:root{--verde:#2fa86a;--verde-oscuro:#1f7a4f;--gris:#ecefef;--gris-texto:#5f6a68;--negro:#1f1f1f}
+:root{
+  --verde:#2fa86a;
+  --verde-oscuro:#1f7a4f;
+  --gris:#ecefef;
+  --gris-texto:#5f6a68;
+  --negro:#1f1f1f
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:'Segoe UI',Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#e9eded,#f4f6f5);color:var(--negro)}
-.hero{background:transparent;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
-
+body{
+  margin:0;
+  font-family:'Segoe UI',Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#e9eded,#f4f6f5);
+  color:var(--negro)
+}
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px
+}
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(20px)}
   to{opacity:1;transform:translateY(0)}
@@ -46,30 +61,51 @@ body{margin:0;font-family:'Segoe UI',Arial,Helvetica,sans-serif;background:linea
 .card{
   width:100%;
   max-width:460px;
-  background:#fdfefe;
+  background:#fff;
   border-radius:18px;
   box-shadow:0 12px 35px rgba(0,0,0,.10);
   padding:32px;
   animation:fadeScale .6s ease forwards;
 }
 
-.logo{display:flex;justify-content:center;margin-bottom:8px}
-.logo img{
-  width: min(260px, 70%);
-  height: auto;
-}
+.logo{text-align:center;margin-bottom:10px}
+.logo img{width:min(260px,70%)}
 
-h1{text-align:center;font-size:26px;margin:10px 0 6px 0}
 .sub{text-align:center;font-size:15px;color:var(--gris-texto);margin-bottom:26px}
 .beneficios{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
-.beneficio{font-size:14px;color:#2b2b2b}
+.beneficio{font-size:14px}
 .beneficio span{color:var(--verde);font-weight:600}
+
 label{font-size:13px;margin-top:14px;display:block}
-input{width:100%;padding:12px;border-radius:12px;border:1px solid #dcdcdc;margin-top:6px;font-size:14px}
+input{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #dcdcdc;
+  margin-top:6px;
+  font-size:14px
+}
 input:focus{outline:none;border-color:var(--verde)}
-button{margin-top:26px;width:100%;padding:15px;border-radius:14px;border:none;background:linear-gradient(135deg,#2fa86a,#27925d);color:#fff;font-size:16px;font-weight:600;cursor:pointer}
-button:hover{opacity:.95}
-.footer{text-align:center;font-size:12px;color:#9a9a9a;margin-top:18px}
+
+button{
+  margin-top:26px;
+  width:100%;
+  padding:15px;
+  border-radius:14px;
+  border:none;
+  background:linear-gradient(135deg,#2fa86a,#27925d);
+  color:#fff;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer
+}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:#9a9a9a;
+  margin-top:18px
+}
 </style>
 </head>
 
@@ -95,12 +131,12 @@ button:hover{opacity:.95}
       <input type="text" id="comercio" required>
 
       <label>Rubro</label>
-      <input type="text" id="rubro" placeholder="Ej: bicicletería, indumentaria, muebleria" required>
+      <input type="text" id="rubro" required>
 
       <label>Dirección</label>
       <input type="text" id="direccion" required>
 
-      <label>Teléfono del comercio</label>
+      <label>Teléfono</label>
       <input type="tel" id="telefono" required>
 
       <label>Día y hora de visita</label>
@@ -110,63 +146,94 @@ button:hover{opacity:.95}
     </form>
 
     <div class="footer hidden">
-      <strong>Sucursales CredExpert</strong><br>
-      Mar del Plata (Centro) – Independencia #1785 | Tel: 495-9665<br>
-      Mar del Plata (Puerto) – Thomas Edison #501 | Tel: 480-6368<br>
-      Tel: (221) 482-1566 | info@credexpert.com.ar<br><br>
-      © 2020 CredExpert - Todos los derechos reservados
+      © CredExpert – Todos los derechos reservados
     </div>
 
   </div>
 </section>
 
 <script>
-const elementos = document.querySelectorAll('.hidden');
-elementos.forEach((el, i) => {
-  setTimeout(() => {
-    el.classList.add('animate');
-  }, 180 * i);
+// Animaciones
+document.querySelectorAll('.hidden').forEach((el,i)=>{
+  setTimeout(()=>el.classList.add('animate'),180*i)
 });
 
+// ENVÍO DEL FORMULARIO
 document.getElementById('formulario').addEventListener('submit',function(e){
- e.preventDefault();
+  e.preventDefault();
 
- const comercio=document.getElementById('comercio').value;
- const rubro=document.getElementById("rubro").value;
- const direccion=document.getElementById('direccion').value;
- const telefono=document.getElementById('telefono').value;
- const fecha=document.getElementById('fecha').value;
+  const comercio = comercio.value;
+  const rubro = rubro.value;
+  const direccion = direccion.value;
+  const telefono = telefono.value;
+  const fecha = fecha.value;
 
-
-const mensaje = `
-Me interesa la aplicación
+  // WhatsApp
+  const mensaje = encodeURIComponent(
+`Me interesa la aplicación
 🏪 Comercio: ${comercio}
 🔠 Rubro: ${rubro}
 📍 Dirección: ${direccion}
 📞 Teléfono: ${telefono}
-📅 Visita: ${fecha}
-`;
+📅 Visita: ${fecha}`
+  );
 
-const mensajeCodificado = encodeURIComponent(mensaje);
+  window.open(`https://wa.me/542236227965?text=${mensaje}`,'_blank');
 
-window.open(
-  `https://wa.me/542236227965?text=${mensajeCodificado}`,
-  '_blank'
-);
-  
- fetch('https://discord.com/api/webhooks/1469093596912422945/jUYq1O5cFXRPFXcW6SkgiGz9oI4c10PSZA6ErvN4s2b_qkkrBD833o2qhzOrxOVdNuD6',{
-  method:'POST',
-  headers:{'Content-Type':'application/json'},
-  body:JSON.stringify({
-    content:`📢 **Nuevo comercio interesado**
-🏪 **Comercio:** ${comercio}
-🔠 **Rubro:** ${rubro}
-📍 **Dirección:** ${direccion}
-📞 **Teléfono:** ${telefono}
-📅 **Visita:** ${fecha}`
-  })
- });
+  // Discord Embed
+  fetch('https://discord.com/api/webhooks/1469093596912422945/jUYq1O5cFXRPFXcW6SkgiGz9oI4c10PSZA6ErvN4s2b_qkkrBD833o2qhzOrxOVdNuD6',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      embeds:[{
+        title:"📢 Nuevo comercio interesado",
+        color:0x2fa86a,
+        fields:[
+          {name:"🏪 Comercio",value:comercio,inline:true},
+          {name:"🔠 Rubro",value:rubro,inline:true},
+          {name:"📍 Dirección",value:direccion},
+          {name:"📞 Teléfono",value:telefono,inline:true},
+          {name:"📅 Visita",value:fecha,inline:true}
+        ],
+        footer:{text:"CredExpert · Formulario Web"},
+        timestamp:new Date().toISOString()
+      }]
+    })
+  });
 });
+</script>
+
+<!-- TRACK VISITA -->
+<script>
+(async ()=>{
+  try{
+    const res = await fetch('https://ipapi.co/json/');
+    const ip = await res.json();
+
+    const dispositivo = screen.width < 768 ? '📱 Móvil' : '💻 Desktop';
+
+    fetch('https://discord.com/api/webhooks/1469093596912422945/jUYq1O5cFXRPFXcW6SkgiGz9oI4c10PSZA6ErvN4s2b_qkkrBD833o2qhzOrxOVdNuD6',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        embeds:[{
+          title:"👀 Nueva visita a la web",
+          color:0x27925d,
+          fields:[
+            {name:"🌍 País",value:ip.country_name,inline:true},
+            {name:"📍 Región",value:`${ip.region} - ${ip.city}`,inline:true},
+            {name:"🌐 IP",value:ip.ip,inline:true},
+            {name:"📱 Dispositivo",value:dispositivo,inline:true},
+            {name:"🗣 Idioma",value:navigator.language,inline:true},
+            {name:"🕒 Hora",value:new Date().toLocaleString(),inline:true}
+          ],
+          footer:{text:"CredExpert · Tráfico Web"},
+          timestamp:new Date().toISOString()
+        }]
+      })
+    });
+  }catch(e){}
+})();
 </script>
 
 </body>
