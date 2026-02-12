@@ -103,9 +103,6 @@ button:hover{opacity:.95}
       <label>Teléfono del comercio</label>
       <input type="tel" id="telefono" required>
 
-      <label>Día y hora de visita</label>
-      <input type="datetime-local" id="fecha" required>
-
       <button type="submit">Agendar visita</button>
     </form>
 
@@ -135,7 +132,7 @@ document.getElementById('formulario').addEventListener('submit',function(e){
  const rubro=document.getElementById("rubro").value;
  const direccion=document.getElementById('direccion').value;
  const telefono=document.getElementById('telefono').value;
- const fecha=document.getElementById('fecha').value;
+
 
 
 const mensaje = `
@@ -144,7 +141,6 @@ Me interesa la aplicación
 🔠 Rubro: ${rubro}
 📍 Dirección: ${direccion}
 📞 Teléfono: ${telefono}
-📅 Visita: ${fecha}
 `;
 
 const mensajeCodificado = encodeURIComponent(mensaje);
@@ -162,8 +158,7 @@ window.open(
 🏪 **Comercio:** ${comercio}
 🔠 **Rubro:** ${rubro}
 📍 **Dirección:** ${direccion}
-📞 **Teléfono:** ${telefono}
-📅 **Visita:** ${fecha}`
+📞 **Teléfono:** ${telefono}`
   })
  });
 });
