@@ -97,8 +97,6 @@ button:hover{opacity:.95}
       <label>Rubro</label>
       <input type="text" id="rubro" placeholder="Ej: bicicletería, indumentaria, muebleria" required>
 
-      <label>Dirección</label>
-      <input type="text" id="direccion" required>
 
       <label>Teléfono del comercio</label>
       <input type="tel" id="telefono" required>
@@ -130,7 +128,6 @@ document.getElementById('formulario').addEventListener('submit',function(e){
 
  const comercio=document.getElementById('comercio').value;
  const rubro=document.getElementById("rubro").value;
- const direccion=document.getElementById('direccion').value;
  const telefono=document.getElementById('telefono').value;
 
 
@@ -139,7 +136,6 @@ const mensaje = `
 Me interesa la aplicación
 🏪 Comercio: ${comercio}
 🔠 Rubro: ${rubro}
-📍 Dirección: ${direccion}
 📞 Teléfono: ${telefono}
 `;
 
@@ -157,7 +153,6 @@ window.open(
     content:`📢 **Nuevo comercio interesado**
 🏪 **Comercio:** ${comercio}
 🔠 **Rubro:** ${rubro}
-📍 **Dirección:** ${direccion}
 📞 **Teléfono:** ${telefono}`
   })
  });
