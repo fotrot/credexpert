@@ -17,7 +17,9 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1235816984573611');
+fbq('init', '1235816984573611', {
+  external_id: 'credexpert_lp'
+});
 fbq('track', 'PageView');
 </script>
 <noscript>
@@ -130,6 +132,19 @@ document.getElementById('formulario').addEventListener('submit',function(e){
  const rubro=document.getElementById("rubro").value;
  const telefono=document.getElementById('telefono').value;
 
+// EVENTO LEAD META
+const eventID = 'lead_' + Date.now();
+
+fbq('track','Lead',{
+  content_name:'Lead CredExpert',
+  content_category:'Financiacion Comercios',
+  lead_type:rubro,
+  status:'form_submitted',
+  value:1,
+  currency:'ARS'
+},{
+  eventID:eventID
+});
 
 
 const mensaje = `
@@ -140,7 +155,11 @@ Me interesa la aplicación
 `;
 
 const mensajeCodificado = encodeURIComponent(mensaje);
-
+// EVENTO CONTACT (clic a WhatsApp)
+fbq('track','Contact',{
+  content_name:'WhatsApp Click',
+  content_category:'Financiacion Comercios'
+});
 window.open(
   `https://wa.me/542236227965?text=${mensajeCodificado}`,
   '_blank'
