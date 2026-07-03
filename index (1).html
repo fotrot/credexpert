@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CredExpert | Vendé más. Cobrá el 100% en el acto.</title>
+<meta name="description" content="Permití que tus clientes financien la compra. Vos cobrás el total en el momento, sin costo y sin riesgo. Agendá una visita gratuita con CredExpert.">
+<style>
+:root{
+  --verde:#0FC453;
+  --verde-oscuro:#31351C;
+  --verde-lima:#D7E997;
+  --verde-tinta:#E8F5EB;
+  --crema:#F7F8F1;
+  --negro:#23261A;
+  --gris-oscuro:#2C2F20;
+  --gris-medio:#666B57;
+  --gris-claro:#EEF0E6;
+  --blanco:#FFFFFF;
+  --radio:20px;
+  --radio-sm:12px;
+  --sombra: 0 20px 50px -20px rgba(11,15,12,0.25);
+  --sombra-sm: 0 10px 25px -12px rgba(11,15,12,0.18);
+  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+}
+
+@font-face{
+  font-family:'Space Grotesk';
+  src: local('Space Grotesk');
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family: var(--font-body);
+  color: var(--gris-oscuro);
+  background: var(--crema);
+  line-height:1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{
+  font-family: var(--font-display);
+  font-weight:700;
+  letter-spacing:-0.02em;
+  color: var(--negro);
+}
+a{text-decoration:none; color:inherit;}
+img{max-width:100%; display:block;}
+ul{list-style:none;}
+.container{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 32px;
+}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color: var(--verde-oscuro);
+  background: var(--verde-tinta);
+  padding:8px 16px;
+  border-radius:100px;
+  margin-bottom:20px;
+}
+
+/* ===== Botones ===== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:16px;
+  padding:18px 34px;
+  border-radius:100px;
+  border:none;
+  cursor:pointer;
+  transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s ease, background .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{
+  background: var(--verde);
+  color: var(--negro);
+  box-shadow: 0 12px 30px -10px rgba(122,201,67,0.55);
+}
+.btn-primary:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -10px rgba(122,201,67,0.7);
+  background: var(--verde-oscuro);
+  color:var(--blanco);
+}
+.btn-primary:active{ transform: translateY(-1px); }
+.btn-ghost{
+  background: transparent;
+  color: var(--negro);
+  border:1.5px solid rgba(11,15,12,0.15);
+}
+.btn-ghost:hover{ border-color: var(--negro); background:var(--gris-claro); }
+.btn-large{ padding:22px 46px; font-size:18px; width:100%; }
+.btn svg{ width:18px; height:18px; transition: transform .25s ease; }
+.btn-primary:hover svg{ transform: translateX(4px); }
+
+/* ===== Header ===== */
+header{
+  position:fixed; top:0; left:0; right:0;
+  z-index:1000;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom:1px solid rgba(11,15,12,0.06);
+  transition: box-shadow .3s ease;
+}
+header.scrolled{ box-shadow: 0 4px 20px rgba(11,15,12,0.06); }
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 32px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.logo{
+  display:flex; align-items:center; gap:10px;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:21px;
+  color:var(--negro);
+}
+.logo-img{ height:32px; width:auto; display:block; }
+.logo-mark{
+  width:34px; height:34px;
+  border-radius:9px;
+  background: linear-gradient(135deg, var(--verde), var(--verde-oscuro));
+  display:flex; align-items:center; justify-content:center;
+  color:var(--negro);
+  font-weight:800;
+  font-size:16px;
+}
+.nav-links{ display:flex; gap:36px; font-weight:600; font-size:15px; color:var(--gris-medio); }
+.nav-links a:hover{ color:var(--negro); }
+.nav-cta{ display:flex; align-items:center; gap:20px; }
+.nav .btn{ padding:13px 26px; font-size:14px; }
+.burger{ display:none; }
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;
+  padding:170px 0 110px;
+  background:
+    radial-gradient(1000px 500px at 85% -10%, var(--verde-tinta) 0%, transparent 60%),
+    var(--blanco);
+  overflow:hidden;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap:60px;
+  align-items:center;
+}
+.hero h1{
+  font-size:clamp(34px, 4.4vw, 58px);
+  line-height:1.08;
+  margin-bottom:26px;
+}
+.hero h1 .hl{
+  color: var(--verde-oscuro);
+  position:relative;
+  white-space:nowrap;
+}
+.hero-sub{
+  font-size:19px;
+  color: var(--gris-medio);
+  max-width:520px;
+  margin-bottom:38px;
+}
+.hero-sub strong{ color:var(--negro); }
+.hero-ctas{ display:flex; align-items:center; gap:22px; flex-wrap:wrap; margin-bottom: 40px;}
+.hero-note{ font-size:14px; color:var(--gris-medio); display:flex; align-items:center; gap:8px; }
+.hero-note svg{ width:16px; height:16px; color:var(--verde-oscuro); flex-shrink:0; }
+
+.hero-trust{
+  display:flex; gap:34px; flex-wrap:wrap;
+  padding-top:32px;
+  border-top:1px solid rgba(11,15,12,0.08);
+}
+.trust-item{ }
+.trust-item .num{ font-family:var(--font-display); font-weight:700; font-size:26px; color:var(--negro); }
+.trust-item .lbl{ font-size:13px; color:var(--gris-medio); }
+
+/* Mockup */
+.hero-visual{ position:relative; display:flex; justify-content:center; align-items:center; }
+.phone{
+  width:320px;
+  background: var(--negro);
+  border-radius:40px;
+  padding:14px;
+  box-shadow: var(--sombra), 0 0 0 1px rgba(0,0,0,0.05);
+  position:relative;
+  animation: floaty 5s ease-in-out infinite;
+}
+@keyframes floaty{
+  0%,100%{ transform: translateY(0px) rotate(-1.2deg); }
+  50%{ transform: translateY(-14px) rotate(0.6deg); }
+}
+.phone-screen{
+  background: var(--crema);
+  border-radius:28px;
+  overflow:hidden;
+  min-height:600px;
+  display:flex; flex-direction:column;
+}
+.phone-notch{ height:26px; display:flex; align-items:center; justify-content:center; }
+.phone-notch::after{ content:''; width:70px; height:6px; background:var(--negro); border-radius:10px; }
+.app-top{
+  padding:6px 22px 14px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.app-top .app-name{ font-family:var(--font-display); font-weight:700; font-size:15px; color:var(--negro); }
+.app-top .dot{ width:9px; height:9px; border-radius:50%; background:var(--verde); }
+.app-panel{
+  margin:0 16px 14px;
+  background: var(--blanco);
+  border-radius:18px;
+  padding:16px;
+  box-shadow: 0 8px 24px -14px rgba(35,38,26,0.25);
+  opacity:0; transform: translateY(10px);
+  animation: apear 0.6s ease forwards 0.4s;
+}
+.app-id-badge{
+  display:flex; align-items:center; gap:10px;
+  background: var(--verde-tinta);
+  border-radius:12px;
+  padding:12px 14px;
+  margin-bottom:14px;
+}
+.app-id-badge .check-mini{
+  width:26px; height:26px; border-radius:50%; background:var(--verde);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.app-id-badge .check-mini svg{ width:14px; height:14px; color:var(--blanco); }
+.app-id-badge .name{ font-weight:700; font-size:12.5px; color:var(--negro); line-height:1.35; }
+.app-id-badge .dni{ font-size:11px; color:var(--gris-medio); }
+.app-id-badge .status{ font-size:11px; font-weight:700; color:var(--verde-oscuro); }
+.app-limits{ margin-bottom:12px; }
+.app-limits .row{ display:flex; align-items:center; justify-content:space-between; padding:7px 0; font-size:12px; }
+.app-limits .row .lbl{ color:var(--gris-medio); font-weight:600; }
+.app-limits .row .val{ font-weight:700; color:var(--negro); }
+.app-limits .divider{ height:1px; background:rgba(35,38,26,0.08); margin:4px 0; }
+.app-field-label{ font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--gris-medio); font-weight:700; margin-bottom:6px;}
+.app-field-value{
+  background:var(--crema);
+  border-radius:10px;
+  padding:11px 13px;
+  font-family: 'Courier New', monospace;
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:0.02em;
+  border:1.5px solid rgba(35,38,26,0.08);
+  margin-bottom:12px;
+}
+.installments{
+  display:flex; flex-direction:column; gap:6px;
+  opacity:0; transform: translateY(10px);
+  animation: apear 0.6s ease forwards 0.9s;
+}
+.inst-chip{
+  display:flex; align-items:center; justify-content:space-between;
+  background:var(--crema);
+  border-radius:10px;
+  padding:10px 12px;
+  font-size:12px;
+  font-weight:700;
+  color:var(--negro);
+}
+.inst-chip.sel{ background:var(--verde-lima); }
+.app-cta{
+  margin-top:auto;
+  padding:16px;
+}
+.app-cta button{
+  width:100%;
+  background:var(--verde-oscuro);
+  color:var(--blanco);
+  border:none;
+  border-radius:12px;
+  padding:14px;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:14px;
+  cursor:default;
+}
+.badge-float{
+  position:absolute;
+  background:var(--blanco);
+  box-shadow: var(--sombra-sm);
+  border-radius:14px;
+  padding:12px 16px;
+  display:flex; align-items:center; gap:10px;
+  font-weight:700; font-size:13px;
+  animation: floaty2 4.5s ease-in-out infinite;
+}
+.badge-float svg{ width:18px; height:18px; color:var(--verde-oscuro); }
+.badge-1{ top:12%; left:-8%; animation-delay:.3s; }
+.badge-2{ bottom:16%; right:-10%; animation-delay:.8s; }
+@keyframes floaty2{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-10px);} }
+@keyframes apear{ to{ opacity:1; transform:translateY(0);} }
+
+/* ===== Scroll reveal ===== */
+.reveal{ opacity:0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in{ opacity:1; transform:translateY(0); }
+.reveal-stagger > *{ opacity:0; transform:translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+.reveal-stagger.in > *{ opacity:1; transform:translateY(0); }
+.reveal-stagger.in > *:nth-child(1){transition-delay:.05s;}
+.reveal-stagger.in > *:nth-child(2){transition-delay:.15s;}
+.reveal-stagger.in > *:nth-child(3){transition-delay:.25s;}
+.reveal-stagger.in > *:nth-child(4){transition-delay:.35s;}
+.reveal-stagger.in > *:nth-child(5){transition-delay:.45s;}
+.reveal-stagger.in > *:nth-child(6){transition-delay:.55s;}
+
+/* ===== Secciones generales ===== */
+section{ padding:120px 0; }
+.section-head{ max-width:640px; margin:0 auto 64px; text-align:center; }
+.section-head h2{ font-size:clamp(28px,3.4vw,42px); margin-bottom:18px; }
+.section-head p{ font-size:18px; color:var(--gris-medio); }
+
+/* ===== Beneficios ===== */
+.benefits{ background: var(--gris-claro); }
+.benefits-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:24px;
+}
+.benefit-card{
+  background:var(--blanco);
+  border-radius: var(--radio);
+  padding:36px 30px;
+  box-shadow: var(--sombra-sm);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.benefit-card:hover{ transform: translateY(-8px); box-shadow: var(--sombra); }
+.benefit-icon{
+  width:52px; height:52px;
+  border-radius:14px;
+  background: var(--verde-tinta);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:20px;
+  color: var(--verde-oscuro);
+}
+.benefit-icon svg{ width:26px; height:26px; }
+.benefit-card h3{ font-size:19px; margin-bottom:10px; }
+.benefit-card p{ color:var(--gris-medio); font-size:15px; }
+
+/* ===== Cómo funciona ===== */
+.how{ background: var(--negro); color:var(--blanco); position:relative; overflow:hidden;}
+.how::before{
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(700px 400px at 10% 10%, rgba(122,201,67,0.12), transparent 60%);
+}
+.how .section-head h2, .how .section-head p{ color:var(--blanco); }
+.how .section-head p{ color:rgba(255,255,255,0.65); }
+.steps{
+  position:relative;
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap:16px;
+  counter-reset: step;
+}
+.step{
+  background: rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radio);
+  padding:26px 20px;
+  text-align:left;
+  position:relative;
+  backdrop-filter: blur(6px);
+}
+.step .step-num{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:13px;
+  color: var(--verde);
+  margin-bottom:14px;
+  display:block;
+}
+.step h4{ color:var(--blanco); font-size:15px; margin-bottom:8px; line-height:1.35;}
+.step p{ color:rgba(255,255,255,0.55); font-size:13px; }
+.step-arrow{
+  display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.25);
+}
+.step-arrow svg{ width:20px; height:20px; }
+
+/* ===== Antes / Despues ===== */
+.compare{ background: var(--blanco); }
+.compare-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+.compare-card{
+  border-radius: var(--radio);
+  padding:42px 38px;
+}
+.compare-card.bad{
+  background: var(--gris-claro);
+  border:1.5px solid rgba(11,15,12,0.08);
+}
+.compare-card.good{
+  background: linear-gradient(160deg, #10160F, var(--negro));
+  color:var(--blanco);
+  box-shadow: var(--sombra);
+}
+.compare-card h3{ font-size:22px; margin-bottom:26px; }
+.compare-card.good h3{ color:var(--blanco); }
+.compare-list{ display:flex; flex-direction:column; gap:16px; }
+.compare-list li{ display:flex; align-items:flex-start; gap:12px; font-size:16px; font-weight:500; }
+.compare-list .ic{ width:24px; height:24px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; margin-top:1px;}
+.compare-card.bad .ic{ background:#F3D9D9; color:#B84545; }
+.compare-card.good .ic{ background: var(--verde); color:var(--negro); }
+.compare-card.bad .ic svg, .compare-card.good .ic svg{ width:13px; height:13px; }
+
+/* ===== FAQ ===== */
+.faq{ background: var(--gris-claro); }
+.faq-list{ max-width:780px; margin:0 auto; display:flex; flex-direction:column; gap:14px; }
+.faq-item{
+  background:var(--blanco);
+  border-radius: var(--radio-sm);
+  border:1px solid rgba(11,15,12,0.08);
+  overflow:hidden;
+}
+.faq-q{
+  width:100%;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:22px 26px;
+  background:none; border:none;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:16px;
+  color:var(--negro);
+  cursor:pointer;
+  text-align:left;
+  gap:20px;
+}
+.faq-q .plus{
+  width:26px; height:26px; border-radius:50%;
+  background: var(--verde-tinta);
+  color:var(--verde-oscuro);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  transition: transform .3s ease, background .3s ease;
+}
+.faq-item.open .faq-q .plus{ transform:rotate(45deg); background:var(--verde); color:var(--negro); }
+.faq-a{
+  max-height:0;
+  overflow:hidden;
+  transition: max-height .4s cubic-bezier(.2,.7,.2,1);
+}
+.faq-a-inner{ padding:0 26px 22px; color:var(--gris-medio); font-size:15px; }
+.faq-item.open .faq-a{ max-height:200px; }
+
+/* ===== Formulario ===== */
+.form-section{
+  background: linear-gradient(180deg, var(--blanco), var(--verde-tinta) 120%);
+  position:relative;
+}
+.form-wrap{
+  display:grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap:0;
+  background: var(--blanco);
+  border-radius: 28px;
+  box-shadow: var(--sombra);
+  overflow:hidden;
+}
+.form-side{
+  background: var(--negro);
+  color:var(--blanco);
+  padding:56px 46px;
+  display:flex; flex-direction:column; justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.form-side::before{
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(500px 300px at 90% 10%, rgba(122,201,67,0.18), transparent 60%);
+}
+.form-side h2{ color:var(--blanco); font-size:30px; margin-bottom:18px; position:relative;}
+.form-side p{ color:rgba(255,255,255,0.65); font-size:16px; margin-bottom:32px; position:relative;}
+.form-benefits{ display:flex; flex-direction:column; gap:16px; position:relative;}
+.form-benefits li{ display:flex; align-items:center; gap:12px; font-size:14.5px; font-weight:600; }
+.form-benefits .ic{ width:28px; height:28px; border-radius:8px; background:rgba(122,201,67,0.15); color:var(--verde); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.form-benefits .ic svg{ width:15px; height:15px; }
+
+.form-main{ padding:56px 50px; }
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px; }
+.field{ display:flex; flex-direction:column; gap:8px; }
+.field label{ font-size:13px; font-weight:700; color:var(--gris-oscuro); }
+.field input, .field select, .field textarea{
+  font-family:var(--font-body);
+  font-size:15px;
+  padding:14px 16px;
+  border-radius:12px;
+  border:1.5px solid rgba(11,15,12,0.12);
+  background: var(--gris-claro);
+  transition: border-color .2s ease, background .2s ease;
+  outline:none;
+}
+.field input:focus, .field select:focus, .field textarea:focus{
+  border-color: var(--verde);
+  background: var(--blanco);
+}
+.field textarea{ resize:vertical; min-height:80px; }
+.form-submit{ margin-top:8px; }
+.form-legal{ font-size:12px; color:var(--gris-medio); margin-top:16px; text-align:center; }
+
+/* ===== CTA final flotante ===== */
+.cta-strip{
+  background: var(--negro);
+  padding:70px 0;
+  text-align:center;
+}
+.cta-strip h2{ color:var(--blanco); font-size:clamp(26px,3vw,36px); margin-bottom:14px; }
+.cta-strip p{ color:rgba(255,255,255,0.6); margin-bottom:32px; font-size:17px; }
+
+/* ===== Footer ===== */
+footer{ background: var(--gris-oscuro); color:rgba(255,255,255,0.7); padding:60px 0 30px; }
+.footer-grid{ display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap:40px; margin-bottom:50px; }
+.footer-logo{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:20px; color:var(--blanco); margin-bottom:14px;}
+.footer-logo-img{ height:30px; background:var(--blanco); padding:8px 12px; border-radius:8px; }
+.footer-col h5{ color:var(--blanco); font-size:14px; margin-bottom:16px; text-transform:uppercase; letter-spacing:0.06em; }
+.footer-col ul{ display:flex; flex-direction:column; gap:10px; font-size:14px; }
+.footer-col a:hover{ color:var(--verde); }
+.footer-social{ display:flex; gap:12px; margin-top:20px; }
+.footer-social a{
+  width:38px; height:38px; border-radius:50%;
+  background: rgba(255,255,255,0.08);
+  display:flex; align-items:center; justify-content:center;
+  transition: background .2s ease;
+}
+.footer-social a:hover{ background: var(--verde); color:var(--negro); }
+.footer-social svg{ width:17px; height:17px; }
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:26px;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:13px; color:rgba(255,255,255,0.4);
+  flex-wrap:wrap; gap:12px;
+}
+
+/* ===== WhatsApp float ===== */
+.wa-float{
+  position:fixed; bottom:28px; right:28px; z-index:900;
+  width:60px; height:60px; border-radius:50%;
+  background: var(--verde);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow: 0 10px 30px -8px rgba(122,201,67,0.6);
+  animation: pulse 2.4s ease-in-out infinite;
+  cursor:pointer;
+}
+.wa-float svg{ width:28px; height:28px; color:var(--negro); }
+@keyframes pulse{
+  0%,100%{ box-shadow: 0 10px 30px -8px rgba(122,201,67,0.6); }
+  50%{ box-shadow: 0 10px 40px -4px rgba(122,201,67,0.85); }
+}
+
+/* ===== Toast confirmación ===== */
+.toast{
+  position:fixed; top:100px; left:50%; transform: translateX(-50%) translateY(-20px);
+  background: var(--negro); color:var(--blanco);
+  padding:18px 28px; border-radius:14px;
+  display:flex; align-items:center; gap:12px;
+  font-weight:600; font-size:15px;
+  box-shadow: var(--sombra);
+  z-index:2000;
+  opacity:0; pointer-events:none;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.toast.show{ opacity:1; transform: translateX(-50%) translateY(0); pointer-events:auto; }
+.toast .ic{ width:26px; height:26px; border-radius:50%; background:var(--verde); display:flex; align-items:center; justify-content:center; color:var(--negro); flex-shrink:0;}
+.toast .ic svg{ width:14px; height:14px; }
+
+/* ===== Responsive ===== */
+@media (max-width: 980px){
+  .hero-grid{ grid-template-columns:1fr; }
+  .hero-visual{ order:-1; margin-bottom:20px; }
+  .phone{ width:270px; }
+  .benefits-grid{ grid-template-columns: repeat(2,1fr); }
+  .steps{ grid-template-columns: repeat(3,1fr); }
+  .step-arrow{ display:none; }
+  .compare-grid{ grid-template-columns:1fr; }
+  .form-wrap{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width: 680px){
+  .nav-links{ display:none; }
+  .container{ padding:0 20px; }
+  .hero{ padding:130px 0 70px; }
+  section{ padding:80px 0; }
+  .benefits-grid{ grid-template-columns:1fr; }
+  .steps{ grid-template-columns: repeat(2,1fr); }
+  .form-row{ grid-template-columns:1fr; }
+  .form-main{ padding:36px 24px; }
+  .form-side{ padding:40px 26px; }
+  .footer-grid{ grid-template-columns:1fr 1fr; gap:30px; }
+  .hero-ctas{ flex-direction:column; align-items:stretch; }
+  .hero-ctas .btn{ width:100%; }
+  .badge-1, .badge-2{ display:none; }
+  .footer-bottom{ flex-direction:column; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header id="header">
+  <nav class="nav">
+    <a href="#" class="logo">
+      <img src="data:image/png;base64,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" alt="CredExpert" class="logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="#beneficios">Beneficios</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#faq">Preguntas</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#formulario" class="btn btn-primary">Agendar visita</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow reveal">
+        <svg viewBox="0 0 24 24" fill="none" width="14" height="14"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" fill="currentColor"/></svg>
+        Financiación para comercios
+      </div>
+      <h1 class="reveal">¿Cuántas ventas estás perdiendo porque tu cliente <span class="hl">no tiene cómo pagar?</span></h1>
+      <p class="hero-sub reveal">Permití que tus clientes financien la compra. <strong>Vos cobrás el 100% en el momento.</strong> Nosotros ponemos el crédito, la cobranza y el riesgo.</p>
+      <div class="hero-ctas reveal">
+        <a href="#formulario" class="btn btn-primary">
+          Agendar visita gratuita
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#como-funciona" class="btn btn-ghost">Ver cómo funciona</a>
+      </div>
+      <div class="hero-note reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        Sin costo para el comercio. Sin riesgo. Respuesta en segundos.
+      </div>
+
+      <div class="hero-trust reveal">
+        <div class="trust-item">
+          <div class="num">100%</div>
+          <div class="lbl">de la venta, cobrado en el acto</div>
+        </div>
+        <div class="trust-item">
+          <div class="num">0</div>
+          <div class="lbl">gestión de cobranza para vos</div>
+        </div>
+        <div class="trust-item">
+          <div class="num">&lt;30s</div>
+          <div class="lbl">tiempo de respuesta</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-notch"></div>
+          <div class="app-top">
+            <span class="app-name">Selección de cuotas</span>
+            <span class="dot"></span>
+          </div>
+
+          <div class="app-panel">
+            <div class="app-id-badge">
+              <div class="check-mini">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </div>
+              <div>
+                <div class="name">PEREZ MARIA LAURA</div>
+                <div class="dni">28.114.552</div>
+                <div class="status">PRE-APROBADO</div>
+              </div>
+            </div>
+
+            <div class="app-limits">
+              <div class="row"><span class="lbl">Monto máximo crédito</span><span class="val">$420.000,00</span></div>
+              <div class="divider"></div>
+              <div class="row"><span class="lbl">Monto máximo cuota</span><span class="val">$210.000,00</span></div>
+            </div>
+
+            <div class="app-field-label">Monto solicitado</div>
+            <div class="app-field-value">$ 250.000,00</div>
+
+            <div class="installments">
+              <div class="inst-chip sel"><span>3 cuotas de</span><span>$144.997,50</span></div>
+              <div class="inst-chip"><span>6 cuotas de</span><span>$85.077,50</span></div>
+            </div>
+          </div>
+
+          <div class="app-cta">
+            <button type="button">Continuar</button>
+          </div>
+        </div>
+      </div>
+      <div class="badge-float badge-1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        Cobrás el 100% ya
+      </div>
+      <div class="badge-float badge-2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Aprobación en segundos
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BENEFICIOS ===== -->
+<section class="benefits" id="beneficios">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>El resultado es que tu comercio factura más, sin asumir ningún riesgo.</h2>
+    </div>
+    <div class="benefits-grid reveal-stagger">
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></div>
+        <h3>Vendé más</h3>
+        <p>Convertí en venta a los clientes que hoy se van con las manos vacías por no tener efectivo.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <h3>Sin costo para el comercio</h3>
+        <p>Adherirte no tiene cargo. No pagás nada por usar la aplicación ni por operar con nosotros.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg></div>
+        <h3>Cobrás el 100% en el acto</h3>
+        <p>Recibís el importe total de la venta al momento, como si fuera contado.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg></div>
+        <h3>Vos no asumís riesgo</h3>
+        <p>Nosotros financiamos, evaluamos y respondemos por cada crédito otorgado.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 9V7a5 5 0 00-10 0v2M5 9h14l-1 12H6L5 9z"/></svg></div>
+        <h3>Nosotros cobramos las cuotas</h3>
+        <p>Toda la gestión de cobranza y mora corre por nuestra cuenta, nunca por la tuya.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg></div>
+        <h3>Implementación sencilla</h3>
+        <p>Un asesor te instala y capacita en el local. Empezás a usarlo el mismo día.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMO FUNCIONA ===== -->
+<section class="how" id="como-funciona">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>¿Cómo funciona?</h2>
+      <p>Del DNI a la venta cerrada, en menos de un minuto.</p>
+    </div>
+    <div class="steps reveal-stagger">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h4>Ingresás el DNI del cliente</h4>
+        <p>Directo desde la app, en el mostrador.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h4>El sistema responde en segundos</h4>
+        <p>Aprobado o rechazado, al instante.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h4>El cliente elige las cuotas</h4>
+        <p>Ve las opciones disponibles y confirma.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <h4>Realizás la venta</h4>
+        <p>Como cualquier venta normal del local.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">05</span>
+        <h4>Cobrás el 100%</h4>
+        <p>El importe completo, en el momento.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">06</span>
+        <h4>Nosotros administramos el crédito</h4>
+        <p>Cuotas, mora y cobranza, de nuestro lado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANTES / DESPUES ===== -->
+<section class="compare">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>El cliente que se va, no vuelve</h2>
+      <p>"No tengo efectivo", "no traje la tarjeta", "voy a volver"... cada una de esas frases es una venta que se pierde.</p>
+    </div>
+    <div class="compare-grid reveal-stagger">
+      <div class="compare-card bad">
+        <h3>Sin CredExpert</h3>
+        <ul class="compare-list">
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>El cliente se va sin comprar</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Ventas perdidas todos los días</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>No tenés cómo ofrecer financiación</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Menor facturación mensual</li>
+        </ul>
+      </div>
+      <div class="compare-card good">
+        <h3>Con CredExpert</h3>
+        <ul class="compare-list">
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Más ventas cerradas por día</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Clientes que compran más felices</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Cobrás el 100% en el momento</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Cero riesgo, cero cobranza</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Preguntas frecuentes</h2>
+      <p>Todo lo que necesitás saber antes de la visita.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">¿Tiene costo para el comercio? <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Adherirte y usar la aplicación no tiene costo para tu comercio.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Quién cobra las cuotas al cliente? <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">CredExpert. Nosotros gestionamos el cobro de cada cuota directamente con el cliente.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Qué pasa si el cliente no paga una cuota? <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">No es un problema tuyo: el comercio ya cobró el 100% en el momento de la venta. Nosotros gestionamos toda la cobranza y la eventual mora.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Necesito prestar dinero o poner capital? <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Toda la financiación corre por cuenta de CredExpert. Tu comercio nunca presta dinero.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Cuánto demora la aprobación? <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sólo segundos. Ingresás el DNI y la respuesta aparece al instante, con las cuotas disponibles si fue aprobado.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">¿Qué tipo de comercio puede adherirse? <span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Cualquier comercio con local físico: indumentaria, electrodomésticos, ferreterías, ópticas, y muchos rubros más.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FORMULARIO ===== -->
+<section class="form-section" id="formulario">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Agendá tu visita gratuita</h2>
+      <p>Un asesor de CredExpert va a tu comercio, sin costo, y te muestra cómo empezar a vender más desde el primer día.</p>
+    </div>
+
+    <div class="form-wrap reveal">
+      <div class="form-side">
+        <h2>Lo que vas a lograr</h2>
+        <p>Una charla de 5 minutos que puede cambiar cuánto factura tu comercio cada mes.</p>
+        <ul class="form-benefits">
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Visita 100% gratuita y sin compromiso</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Te mostramos la app funcionando en vivo</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Implementación el mismo día si querés avanzar</li>
+          <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Sin letra chica, sin costos</li>
+        </ul>
+      </div>
+
+      <div class="form-main">
+        <form id="leadForm" action="https://formspree.io/f/mvzjdonl" method="POST">
+          <div class="form-row">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="field">
+              <label for="apellido">Apellido</label>
+              <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="comercio">Nombre del comercio</label>
+              <input type="text" id="comercio" name="comercio" placeholder="Ej: Zapatería Norte" required>
+            </div>
+            <div class="field">
+              <label for="rubro">Rubro</label>
+              <select id="rubro" name="rubro" required>
+                <option value="" disabled selected>Elegí una opción</option>
+                <option>Indumentaria</option>
+                <option>Calzado</option>
+                <option>Electrodomésticos</option>
+                <option>Ferretería</option>
+                <option>Óptica</option>
+                <option>Muebles</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="ciudad">Ciudad</label>
+              <input type="text" id="ciudad" name="ciudad" placeholder="Tu ciudad" required>
+            </div>
+            <div class="field">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="Teléfono fijo o celular">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="whatsapp">WhatsApp</label>
+              <input type="tel" id="whatsapp" name="whatsapp" placeholder="Tu número de WhatsApp" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+          </div>
+          <div class="field" style="margin-bottom:22px;">
+            <label for="obs">Observaciones (opcional)</label>
+            <textarea id="obs" name="obs" placeholder="Contanos algo más sobre tu comercio"></textarea>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary btn-large">Quiero agendar una visita</button>
+          </div>
+          <div class="form-legal">Al enviar aceptás que un asesor de CredExpert te contacte para coordinar la visita.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta-strip">
+  <div class="container">
+    <h2 class="reveal">Cada día sin CredExpert es una venta que se va con el cliente</h2>
+    <p class="reveal">Agendá tu visita gratuita y empezá a recuperarlas.</p>
+    <a href="#formulario" class="btn btn-primary reveal">Agendar visita gratuita</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="data:image/png;base64,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" alt="CredExpert" class="logo-img footer-logo-img"></div>
+        <p style="font-size:14px; max-width:280px;">Financiamos a los clientes de tu comercio. Vos vendés y cobrás el 100%, nosotros hacemos el resto.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 13v4"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Producto</h5>
+        <ul>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li>WhatsApp: +54 9 11 5555-5555</li>
+          <li>hola@credexpert.com.ar</li>
+          <li>Buenos Aires, Argentina</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Empezar</h5>
+        <ul>
+          <li><a href="#formulario">Agendar visita</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 CredExpert. Todos los derechos reservados.</span>
+      <span>Financiación responsable para comercios.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/5491155555555" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.63 1.44 5.17L2 22l5.05-1.53a9.9 9.9 0 004.99 1.33h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.35-.51.05-.98.24-3.28-.68-2.78-1.11-4.56-3.94-4.7-4.13-.14-.19-1.12-1.49-1.12-2.85 0-1.35.71-2.02.96-2.29.24-.28.53-.35.71-.35h.5c.16 0 .38-.03.58.44.24.57.79 1.97.86 2.11.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.38-.43.51-.14.14-.29.29-.13.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.68-.79.86-1.06.19-.28.38-.23.63-.14.26.09 1.64.77 1.92.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+  <span>¡Listo! Un asesor te va a contactar para coordinar la visita.</span>
+</div>
+
+<script>
+// Header scroll shadow
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  q.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
+
+// Form submit
+const form = document.getElementById('leadForm');
+const toast = document.getElementById('toast');
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Enviando...';
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      toast.classList.add('show');
+      form.reset();
+      setTimeout(() => toast.classList.remove('show'), 4500);
+    } else {
+      alert('Hubo un problema al enviar el formulario. Por favor intentá de nuevo o contactanos por WhatsApp.');
+    }
+  })
+  .catch(() => {
+    alert('Hubo un problema al enviar el formulario. Por favor intentá de nuevo o contactanos por WhatsApp.');
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  });
+});
+
+// Smooth anchor offset for fixed header
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e){
+    const id = this.getAttribute('href');
+    if(id.length > 1){
+      const target = document.querySelector(id);
+      if(target){
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior:'smooth' });
+      }
+    }
+  });
+});
+</script>
+
+</body>
+</html>
